@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppLanches.Pages.InscricaoPage"
+             Title="InscricaoPage"
+             NavigationPage.HasNavigationBar="False">
+
+  <Grid RowDefinitions="Auto, Auto, Auto, Auto, *"
+            RowSpacing="20"
+            Margin="20, 150, 20, 40">
+
+    <Image Source="lanchesico.jpg"
+             Aspect="AspectFit"
+             HeightRequest="100"
+             WidthRequest="100"
+             Grid.Row="0" />
+
+    <Label Text="Olá! Junte-se a nós"
+             VerticalOptions="Center" 
+             HorizontalOptions="Center"
+             Grid.Row="1" />
+
+    <Frame Padding="15"
+             BackgroundColor="White"
+             Grid.Row="2">
+
+      <VerticalStackLayout>
+        <Entry x:Name="txtNome"
+                 Placeholder="Nome" />
+
+        <Entry x:Name="txtEmail"
+                 Keyboard="Email"
+                 Placeholder="Email" />
+
+        <Entry x:Name="txtTelefone"
+                 Keyboard="Telephone"
+                 Placeholder="Telefone" />
+
+        <Entry x:Name="txtPassword"
+                 IsPassword="True"
+                 Placeholder="Password" />
+      </VerticalStackLayout>
+
+    </Frame>
+
+    <Button x:Name="btnResgistro"
+              Grid.Row="3"
+              Text="Faça o seu Registro"
+              BackgroundColor="#a90409"
+              FontSize="Medium"
+              Clicked="btnResgistro_Clicked" />
+
+    <HorizontalStackLayout Grid.Row="4"
+                             Spacing="4"
+                             HorizontalOptions="Center"
+                             VerticalOptions="EndAndExpand">
+      <Label Text="Já possui uma conta?" />
+      <Label Text="Entre aqui" FontAttributes="Bold" TextColor="#a90409">
+        <Label.GestureRecognizers>
+          <TapGestureRecognizer x:Name="TapLogin" Tapped="TapLogin_Tapped" />
+        </Label.GestureRecognizers>
+      </Label>
+
+    </HorizontalStackLayout>
+  </Grid>
+</ContentPage>

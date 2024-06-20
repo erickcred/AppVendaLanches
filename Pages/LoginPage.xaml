@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppLanches.Pages.LoginPage"
+             Title="Login"
+             NavigationPage.HasNavigationBar="False">
+
+  <Grid RowDefinitions="Auto, Auto, Auto, Auto, *"
+          RowSpacing="20"
+          Margin="20, 150, 20, 40">
+
+    <Image Source="lanchesico.jpg"
+             Aspect="AspectFit"
+             HeightRequest="100"
+             WidthRequest="100" 
+             Grid.Row="0"/>
+
+    <Label Text="Login"
+             VerticalOptions="Center" 
+             HorizontalOptions="Center" 
+             Grid.Row="1" />
+
+    <Frame Padding="15"
+             BackgroundColor="White"
+             Grid.Row="2">
+
+      <VerticalStackLayout>
+        <Entry x:Name="txtEmail"
+                 Placeholder="Email"
+                 Keyboard="Email" />
+
+        <Entry x:Name="txtPassword"
+                 Placeholder="Password"
+                 IsPassword="True" />
+      </VerticalStackLayout>
+    </Frame>
+
+    <Button x:Name="btnEntrar"
+              Text="Entrar"
+              BackgroundColor="#a90409"
+              Clicked="btnEntrar_Clicked"
+              Grid.Row="3" />
+
+    <HorizontalStackLayout Grid.Row="4"
+                             Spacing="4"
+                             HorizontalOptions="Center"
+                             VerticalOptions="EndAndExpand">
+      <Label Text="Não tem conta?" />
+      <Label Text="Faça o registro agora" FontAttributes="Bold" TextColor="#a90409">
+        <Label.GestureRecognizers>
+          <TapGestureRecognizer x:Name="TapRegister" Tapped="TapRegister_Tapped" />
+        </Label.GestureRecognizers>
+      </Label>
+    </HorizontalStackLayout>
+
+  </Grid>
+</ContentPage>
