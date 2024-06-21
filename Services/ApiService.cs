@@ -64,6 +64,7 @@ public class ApiService
     {
       var login = new Login
       {
+        Nome = "",
         Email = email,
         Senha = password
       };
@@ -72,7 +73,7 @@ public class ApiService
       var content = new StringContent(json, Encoding.UTF8, "application/json");
       
 
-      var response = await PostRequest("api/Usuarions/Login", content);
+      var response = await PostRequest("api/Usuarios/Login", content);
       if (!response.IsSuccessStatusCode)
       {
         _logger.LogError($"Erro ao enviar requisição HTTP: {response.StatusCode}");
