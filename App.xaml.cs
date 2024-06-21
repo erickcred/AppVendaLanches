@@ -15,8 +15,20 @@ namespace AppLanches
       _apiService = apiService;
       _validator = validator;
 
-      MainPage = new NavigationPage(new LoginPage(_apiService, _validator));
-      _validator = validator;
+      SetMainPage();
+    }
+
+    private void SetMainPage()
+    {
+      var accessToken = Preferences.Get("accessToken", string.Empty);
+
+      if (string.IsNullOrWhiteSpace(accessToken))
+      {
+        MainPage = new NavigationPage(new LoginPage(_apiService, _validator));
+        return;
+      }
+
+      MainPage = new AppShell();
     }
   }
 }
