@@ -64,7 +64,7 @@ public class ApiService
     {
       var login = new Login
       {
-        Nome = "",
+        Nome = email,
         Email = email,
         Senha = password
       };
@@ -86,9 +86,9 @@ public class ApiService
       var jsonResult = await response.Content.ReadAsStringAsync();
       var result = JsonSerializer.Deserialize<Token>(jsonResult, _serializerOptions);
 
-      Preferences.Set("accesstoken", result!.AccessToken);
+      Preferences.Set("accessToken", result!.AccessToken);
       Preferences.Set("usuarioId", (int)result.UsuarioId!);
-      Preferences.Set("usuarionome", result!.UsuarioNome);
+      Preferences.Set("usuarioNome", result!.UsuarioNome);
 
       return new ApiServiceResponse<bool> { Data = true };
     }
