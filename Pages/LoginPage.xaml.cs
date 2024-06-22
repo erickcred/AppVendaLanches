@@ -32,7 +32,7 @@ public partial class LoginPage : ContentPage
     var response = await _apiService.Login(txtEmail.Text, txtPassword.Text);
     if (!response.HasError)
     {
-      Application.Current!.MainPage = new AppShell();
+      Application.Current!.MainPage = new AppShell(_apiService, _validator);
     }
     else
       await DisplayAlert($"Erro", "Algo deu errado!\n-{response}", "Cancelar");
