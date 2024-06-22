@@ -28,13 +28,13 @@ public partial class HomePage : ContentPage
 	{
 		base.OnAppearing();
 		await GetListaCategorias();
-		//await GetMaisVendidos();
-		//await GetPopulares();
+		await GetMaisVendidos();
+		await GetPopulares();
 	}
 
 	private async Task<IEnumerable<Categoria>> GetListaCategorias()
 	{
-		try
+    try
 		{
 			var (categorias, errorMessage) = await _apiService.GetCategorias();
 
@@ -57,6 +57,62 @@ public partial class HomePage : ContentPage
 			await DisplayAlert("Erro", $"Ocorreu um erro inesperado: {ex}", "OK");
 			return Enumerable.Empty<Categoria>();
 		}
+	}
+
+	private async Task<IEnumerable<Produto>> GetMaisVendidos()
+	{
+    try
+    {
+			var (produtos, errorMessage) = await _apiService.GetProdutos("mais vendido", string.Empty);
+
+			if (errorMessage is not null && errorMessage!.Equals("Unauthorized") && !_loginPageDisplay)
+			{
+				await DisplayLoginPage();
+				return Enumerable.Empty<Produto>();
+			}
+
+			if (produtos is null)
+			{
+				await DisplayAlert("Erro", errorMessage ?? "Não foi possível obter produtos mais vendidos!", "OK");
+				return Enumerable.Empty<Produto>();
+			}
+
+			cvMaisVendidos.ItemsSource = produtos;
+			return produtos;
+    }
+    catch (Exception ex)
+    {
+			await DisplayAlert("Error", $"Ocorreu um erro inesperado: {ex}", "OK");
+			return Enumerable.Empty<Produto>();
+    }
+  }
+
+	private async Task<IEnumerable<Produto>> GetPopulares()
+	{
+		try
+		{
+			var (produtos, errorMessage) = await _apiService.GetProdutos("popular", string.Empty);
+
+			if (errorMessage is not null && errorMessage!.Equals("Unauthorized") && !_loginPageDisplay)
+			{
+				await DisplayLoginPage();
+				return Enumerable.Empty<Produto>();
+			}
+
+			if (produtos is null)
+			{
+				await DisplayAlert("Error", errorMessage ?? $"Não foi possive obter produtos mais populares!", "OK");
+				return Enumerable.Empty<Produto>();
+			}
+
+			cvPopulares.ItemsSource = produtos;
+			return produtos;
+		}
+		catch (Exception ex)
+		{
+      await DisplayAlert("Error", $"Ocorreu um erro inesperado: {ex}", "OK");
+      return Enumerable.Empty<Produto>();
+    }
 	}
 
 

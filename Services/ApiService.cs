@@ -107,7 +107,7 @@ public class ApiService
 
   public async Task<(List<Produto>? Produtos, string? Errormessage)> GetProdutos(string tipoProduto, string categoriaId)
   {
-    string endpoint = $"api/Produto?tipoProduto={tipoProduto}&categoriaId={categoriaId}";
+    string endpoint = $"api/Produtos?tipoProduto={tipoProduto}&categoriaId={categoriaId}";
     return await GetAsync<List<Produto>>(endpoint);
   }
 

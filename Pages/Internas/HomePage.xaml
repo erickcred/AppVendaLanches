@@ -24,7 +24,7 @@
            Grid.Row="1"/>
     <CollectionView x:Name="cvCategorias" SelectionMode="Single" Grid.Row="2">
       <CollectionView.ItemsLayout>
-        <LinearItemsLayout ItemSpacing="20" Orientation="Horizontal" />
+        <LinearItemsLayout ItemSpacing="28" Orientation="Horizontal" />
       </CollectionView.ItemsLayout>
 
       <CollectionView.ItemTemplate>
@@ -32,7 +32,7 @@
           <VerticalStackLayout>
 
             <Image Source="{ Binding CaminhoImagem }"
-                   HeightRequest="80" WidthRequest="80" />
+                   HeightRequest="60" WidthRequest="60" />
 
             <Label Text="{ Binding Nome }" HorizontalOptions="Center" FontSize="Small" />
 
@@ -63,7 +63,7 @@
 
               <Label Text="{ Binding Nome }" TextColor="White" HorizontalOptions="FillAndExpand"
                      BackgroundColor="#80000000"
-                     Padding="5,5" VerticalOptions="End"
+                     Padding="5,5" VerticalOptions="EndAndExpand" 
                      FontSize="18" />
 
             </VerticalStackLayout>
