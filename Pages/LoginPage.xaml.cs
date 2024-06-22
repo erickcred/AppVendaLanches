@@ -35,7 +35,7 @@ public partial class LoginPage : ContentPage
       Application.Current!.MainPage = new AppShell();
     }
     else
-      await DisplayAlert("Erro", "Algo deu errado!", "Cancelar");
+      await DisplayAlert($"Erro", "Algo deu errado!\n-{response}", "Cancelar");
   }
 
   private async void TapRegister_Tapped(object sender, TappedEventArgs e)
