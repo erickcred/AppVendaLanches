@@ -26,19 +26,27 @@
 
       <VerticalStackLayout>
         <Entry x:Name="txtNome"
-                 Placeholder="Nome" />
+               TextColor="Black"
+               FontAttributes="Bold"
+               Placeholder="Nome" />
 
         <Entry x:Name="txtEmail"
-                 Keyboard="Email"
-                 Placeholder="Email" />
+               TextColor="Black"
+               FontAttributes="Bold"
+               Keyboard="Email"
+               Placeholder="Email" />
 
         <Entry x:Name="txtTelefone"
-                 Keyboard="Telephone"
-                 Placeholder="Telefone" />
+               TextColor="Black"
+               FontAttributes="Bold"
+               Keyboard="Telephone"
+               Placeholder="Telefone" />
 
         <Entry x:Name="txtPassword"
-                 IsPassword="True"
-                 Placeholder="Password" />
+               TextColor="Black"
+               FontAttributes="Bold"
+               IsPassword="True"
+               Placeholder="Password" />
       </VerticalStackLayout>
 
     </Frame>
