@@ -12,13 +12,13 @@
              Text="Olá, "
              FontSize="Large"/>
       <Label Text="Bateu aquela fome!"
-               TextColor="DarkOrange"
+               TextColor="#B73A5A"
                FontAttributes="Bold"
                FontSize="Subtitle"/>
     </VerticalStackLayout>
 
     <Label Text="Categorias"
-           TextColor="#a90409"
+           TextColor="#7E045D"
            FontAttributes="Bold"
            FontSize="Medium"
            Grid.Row="1"/>
@@ -42,7 +42,7 @@
     </CollectionView>
 
     <Label Text="Mais Vendidos"
-           TextColor="#a90409"
+           TextColor="#6A045D"
            FontAttributes="Bold"
            FontSize="Medium"
            Grid.Row="3"/>
@@ -55,15 +55,15 @@
       <CollectionView.ItemTemplate>
         <DataTemplate>
 
-          <Border StrokeShape="RoundRectangle 10, 10, 10, 10">
+          <Border StrokeShape="RoundRectangle 10, 100, 10, 10">
             <VerticalStackLayout>
 
-              <Image Source="{ Binding CaminhoImagem }" Aspect="Fill"
+              <Image Source="{ Binding CaminhoImagem }" Aspect="AspectFill"
                     HeightRequest="120" WidthRequest="120" />
 
               <Label Text="{ Binding Nome }" TextColor="White" HorizontalOptions="FillAndExpand"
                      BackgroundColor="#80000000"
-                     Padding="5,5" VerticalOptions="EndAndExpand" 
+                     Padding="5,5" VerticalOptions="End" 
                      FontSize="18" />
 
             </VerticalStackLayout>
@@ -74,7 +74,7 @@
     </CollectionView>
 
     <Label Text="Mais Populares"
-           TextColor="#a90409"
+           TextColor="#6A045D"
            FontAttributes="Bold"
            FontSize="Medium"
            Grid.Row="5"/>

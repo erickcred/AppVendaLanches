@@ -31,7 +31,7 @@ namespace AppLanches
       {
         Items =
         {
-          new ShellContent { Title = "", Icon = "home", Content = homePage },
+          new ShellContent { Title = "Home", Icon = "home", Content = homePage },
           new ShellContent { Title = "Carrinho", Icon = "cart", Content = carrinhoPage },
           new ShellContent { Title = "Favoritos", Icon = "heart", Content = favoritosPage },
           new ShellContent { Title = "Perfil", Icon = "person", Content = perfilPage }
