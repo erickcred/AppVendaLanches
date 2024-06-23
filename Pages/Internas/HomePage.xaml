@@ -55,7 +55,7 @@
       <CollectionView.ItemTemplate>
         <DataTemplate>
 
-          <Border StrokeShape="RoundRectangle 10, 100, 10, 10">
+          <Border StrokeShape="RoundRectangle 10, 10, 10, 10">
             <VerticalStackLayout>
 
               <Image Source="{ Binding CaminhoImagem }" Aspect="AspectFill"
