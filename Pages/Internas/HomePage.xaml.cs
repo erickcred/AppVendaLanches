@@ -31,6 +31,17 @@ public partial class HomePage : ContentPage
 		await GetMaisVendidos();
 		await GetPopulares();
 	}
+	
+	private void cvCategorias_SelectionChanged(object sender, SelectionChangedEventArgs e)
+	{
+		var currentSelection = e.CurrentSelection.FirstOrDefault() as Categoria;
+
+		if (currentSelection is null) return;
+		Navigation.PushAsync(
+			new ListaProdutosPage(currentSelection.Nome!, currentSelection.Id, _apiService, _validator));
+
+		((CollectionView)sender).SelectedItem = null;
+	}
 
 	private async Task<IEnumerable<Categoria>> GetListaCategorias()
 	{

@@ -22,7 +22,10 @@
            FontAttributes="Bold"
            FontSize="Medium"
            Grid.Row="1"/>
-    <CollectionView x:Name="cvCategorias" SelectionMode="Single" Grid.Row="2">
+    
+    <CollectionView x:Name="cvCategorias" SelectionMode="Single"
+                    SelectionChanged="cvCategorias_SelectionChanged"
+                    Grid.Row="2">
       <CollectionView.ItemsLayout>
         <LinearItemsLayout ItemSpacing="28" Orientation="Horizontal" />
       </CollectionView.ItemsLayout>
