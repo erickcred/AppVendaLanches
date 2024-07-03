@@ -31,8 +31,9 @@ public partial class HomePage : ContentPage
 		await GetMaisVendidos();
 		await GetPopulares();
 	}
-	
-	private void cvCategorias_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+  #region SelectChange
+  private void cvCategorias_SelectionChanged(object sender, SelectionChangedEventArgs e)
 	{
 		var currentSelection = e.CurrentSelection.FirstOrDefault() as Categoria;
 
@@ -42,8 +43,10 @@ public partial class HomePage : ContentPage
 
 		((CollectionView)sender).SelectedItem = null;
 	}
+  #endregion
 
-	private async Task<IEnumerable<Categoria>> GetListaCategorias()
+  #region Retornos DataGrids
+  private async Task<IEnumerable<Categoria>> GetListaCategorias()
 	{
     try
 		{
@@ -125,7 +128,7 @@ public partial class HomePage : ContentPage
       return Enumerable.Empty<Produto>();
     }
 	}
-
+	#endregion
 
 	private async Task DisplayLoginPage()
 	{

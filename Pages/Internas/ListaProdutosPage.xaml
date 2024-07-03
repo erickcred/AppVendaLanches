@@ -12,20 +12,20 @@
           
           <Grid ColumnSpacing="4">
             <Grid.ColumnDefinitions>
-              <ColumnDefinition Width=".3*" />
-              <ColumnDefinition Width=".1*" />
-              <ColumnDefinition Width=".8*" />
+              <ColumnDefinition Width=".5*" />
+              <ColumnDefinition Width=".02*" />
+              <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
             <Image Source="{ Binding CaminhoImagem }" 
-                   Aspect="AspectFill"
-                   WidthRequest="120"
-                   HeightRequest="120"
+                   Aspect="AspectFit"
+                   WidthRequest="110"
+                   HeightRequest="110"
                    Grid.Column="0" Grid.Row="0" />
 
             <VerticalStackLayout Grid.Column="2" Grid.Row="1">
-              <Label Text="{ Binding Nome }" FontSize="Medium" Padding="1" VerticalOptions="Center" Margin="0 0 6 0" />
-              <Label Text="{ Binding Detalhe }" FontSize="Small" Margin="0 0 6 0"/>
+              <Label Text="{ Binding Nome }" FontSize="Medium" VerticalOptions="Center" />
+              <Label Text="{ Binding Detalhe }" FontSize="Small" Padding="6, 0, 6, 0" />
               <Label Text="{ Binding Preco, StringFormat='R$ {0:F2}' }" FontAttributes="Bold" 
                       FontSize="Large" TextColor="Green" Grid.Row="2" />
             </VerticalStackLayout>

@@ -4,9 +4,9 @@
              x:Class="AppLanches.Pages.Internas.HomePage"
              NavigationPage.HasNavigationBar="False">
 
-  <Grid RowDefinitions="Auto, Auto, Auto, Auto, 3*, Auto, 4*"
-          RowSpacing="18" Margin="15">
 
+  <Grid RowDefinitions="Auto, Auto, Auto, Auto, 3*, Auto, 4*"
+          RowSpacing="18" Margin="16">
     <VerticalStackLayout Grid.Row="0">
       <Label x:Name="lblSaudacao"
              Text="Olá, "
@@ -22,7 +22,7 @@
            FontAttributes="Bold"
            FontSize="Medium"
            Grid.Row="1"/>
-    
+
     <CollectionView x:Name="cvCategorias" SelectionMode="Single"
                     SelectionChanged="cvCategorias_SelectionChanged"
                     Grid.Row="2">
@@ -62,12 +62,13 @@
             <VerticalStackLayout>
 
               <Image Source="{ Binding CaminhoImagem }" Aspect="AspectFill"
-                    HeightRequest="120" WidthRequest="120" />
+                    HeightRequest="110" WidthRequest="110" />
 
-              <Label Text="{ Binding Nome }" TextColor="White" HorizontalOptions="FillAndExpand"
-                     BackgroundColor="#80000000"
-                     Padding="5,5" VerticalOptions="End" 
-                     FontSize="18" />
+              <VerticalStackLayout BackgroundColor="#80000000">
+                <Label Text="{ Binding Nome }" TextColor="White" HorizontalOptions="CenterAndExpand"
+                       Padding="5,5" VerticalOptions="End" 
+                       FontSize="18" />
+              </VerticalStackLayout>
 
             </VerticalStackLayout>
           </Border>
@@ -91,17 +92,19 @@
         <DataTemplate>
 
           <Border StrokeShape="RoundRectangle 10, 10, 10, 10"
-                  VerticalOptions="Start" Padding="4">
-            <Grid RowDefinitions="Auto, Auto, Auto" RowSpacing="4">
+                  VerticalOptions="Fill">
+            <Grid RowDefinitions="Auto, *" RowSpacing="2">
 
-              <Image Source="{ Binding CaminhoImagem }" Aspect="AspectFill"
-                    HeightRequest="120" WidthRequest="120" />
+              <Image Source="{ Binding CaminhoImagem }" Aspect="Fill"
+                    WidthRequest="130" HeightRequest="130"  HorizontalOptions="Fill"/>
 
-              <Label Text="{ Binding Nome }" FontAttributes="Bold" LineBreakMode="WordWrap"
-                     FontSize="Small" MaxLines="2" Grid.Row="1" />
+              <VerticalStackLayout Grid.Row="1" Padding="6, 0, 6, 16" VerticalOptions="CenterAndExpand">
+                <Label Text="{ Binding Nome }" FontAttributes="Bold" LineBreakMode="CharacterWrap"
+                       FontSize="Small" MaxLines="2" WidthRequest="140" />
 
-              <Label Text="{ Binding Preco, StringFormat='R$ {0:F2}' }" FontAttributes="Bold" 
-                     FontSize="Small"  Grid.Row="2" />
+                <Label Text="{ Binding Preco, StringFormat='R$ {0:F2}' }" FontAttributes="Bold" 
+                       FontSize="Small" />
+              </VerticalStackLayout>
 
             </Grid>
 
